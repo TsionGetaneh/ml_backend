@@ -5,16 +5,16 @@ import numpy as np
 
 app = FastAPI()
 
-# ✅ CORS FIX (THIS IS THE KEY PART)
+# CORS middleware for frontend requests
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # allow all origins (OK for dev)
+    allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["*"],  # allow OPTIONS, POST, GET, etc.
+    allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Load models
+# Load models from model/ folder
 lr_model = joblib.load("model/logistic_model.pkl")
 dt_model = joblib.load("model/decision_tree_model.pkl")
 
