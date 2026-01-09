@@ -2,7 +2,6 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import joblib
 import numpy as np
-
 app = FastAPI()
 
 # CORS middleware for frontend requests
@@ -13,7 +12,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # Load models from model/ folder
 lr_model = joblib.load("model/logistic_model.pkl")
 dt_model = joblib.load("model/decision_tree_model.pkl")
